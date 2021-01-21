@@ -1,8 +1,7 @@
-import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 
 import { PhotoService } from './photos/photo/photo.service';
@@ -15,7 +14,6 @@ import { PhotosModule } from './photos/photos.module';
     BrowserModule,
     AppRoutingModule, 
     PhotosModule,
-    HttpClientModule,
   ],
   providers: [PhotoService],
   bootstrap: [AppComponent]
