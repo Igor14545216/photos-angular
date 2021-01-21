@@ -7,10 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  photos: object[] = [];
 
   constructor(http: HttpClient) {
-    console.log(http);
-   }
-
-  photos = [];
+    http.get<Object[]>('http://localhost:3000/flavio/photos')
+      .subscribe(resp => this.photos = resp,
+        err => console.log(err)
+      );
+  }
 }
