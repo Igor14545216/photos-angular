@@ -8,11 +8,13 @@ import { PhotoService } from './photos/photo/photo.service';
 })
 export class AppComponent {
 
-  photos: object[] = [];
+  photos: any[] = [];
 
   constructor(service: PhotoService) {
 
-    service.listaFhotos('flavio').subscribe(resp => this.photos = resp);
-
+    service.listaFhotos('flavio').subscribe(photos => {
+      console.log(photos[0].id);
+      this.photos = photos;
+    });
   }
 }
