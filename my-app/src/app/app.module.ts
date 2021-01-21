@@ -5,6 +5,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { PhotoService } from './photos/photo/photo.service';
+
 import { PhotosModule } from './photos/photos.module';
 
 @NgModule({
@@ -15,7 +17,7 @@ import { PhotosModule } from './photos/photos.module';
     PhotosModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [PhotoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
