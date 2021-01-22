@@ -8,6 +8,7 @@ import { PhotoFormComponent } from './photo-form/photo-form.component';
 import { PhotosComponent } from './photo-list/photos/photos.component';
 import { FilterByDescription } from './photo-list/filter-by-description.pipe';
 import { LoadButtonComponent } from './photo-list/load-button/load-button.component';
+import { CardModule } from '../shared/components/card/card.module';
 
 @NgModule({
     declarations: [
@@ -19,8 +20,9 @@ import { LoadButtonComponent } from './photo-list/load-button/load-button.compon
         FilterByDescription, LoadButtonComponent
     ],
     imports: [
-        CommonModule, //responsavel por importar as diretivas
-        HttpClientModule
+        CommonModule, 
+        HttpClientModule, 
+        CardModule
     ],
     providers: [],
 })
