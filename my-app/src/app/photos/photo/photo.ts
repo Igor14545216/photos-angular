@@ -8,5 +8,3 @@ export interface Photo {
     comments: number;
     userId: number;
 }
-
-// Se eu quiser mudar uma propriedade em todos os lugares, eu seleciono ela, clico com o botão direito e vou em rename symbol

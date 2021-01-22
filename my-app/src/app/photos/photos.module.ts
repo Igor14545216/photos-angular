@@ -18,8 +18,9 @@ import { DarkenOnOverModule } from '../shared/diretivas/darken-on-over/darken-on
         PhotoListComponent,
         PhotoFormComponent,
         PhotosComponent, 
-        
-        FilterByDescription, LoadButtonComponent, SearchComponent
+        FilterByDescription, 
+        LoadButtonComponent, 
+        SearchComponent
     ],
     imports: [
         CommonModule, 

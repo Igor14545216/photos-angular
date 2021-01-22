@@ -17,4 +17,5 @@ export class AppComponent {
       this.photos = photos;
     });
   }
+  
 }

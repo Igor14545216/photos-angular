@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Photo } from '../photo/photo';
@@ -18,7 +18,7 @@ export class PhotoListComponent implements OnInit {
   userName: string = '';
 
   constructor(
-    private activatedRoute: ActivatedRoute, 
+    private activatedRoute: ActivatedRoute,
     private service: PhotoService) { }
 
   ngOnInit() {
@@ -26,17 +26,15 @@ export class PhotoListComponent implements OnInit {
     this.photos = this.activatedRoute.snapshot.data['photos'];
   }
 
-  onTyping(event: any){
+  onTyping(event: any) {
     this.filter = event.target.value;
   }
 
   load() {
-    this.service
-        .listFromUserPaginated(this.userName, ++this.currentPage)
-        .subscribe(photos => {
-            this.photos = this.photos.concat(photos)
-            if(!photos.length) this.hasMore = false;
-        });
-}
+    this.service.listFromUserPaginated(this.userName, ++this.currentPage).subscribe(photos => {
+        this.photos = this.photos.concat(photos)
+        if (!photos.length) this.hasMore = false;
+      });
+  }
 
 }
