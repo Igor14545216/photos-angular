@@ -11,7 +11,7 @@ import { PhotosModule } from './photos/photos.module';
 import { HomeModule } from './home/home.module';
 
 @NgModule({
-  declarations: [ AppComponent ],
+  declarations: [ AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule, 

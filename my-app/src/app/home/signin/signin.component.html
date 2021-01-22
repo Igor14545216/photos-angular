@@ -1,19 +1,11 @@
 <form action="" [formGroup]="loginForm">
     <div class="form-group">
         <input formControlName="userName" class="form-control" placeholder="user name" autofocus>
-        <small class="text-danger d-block mt-2" 
-        *ngIf="!loginForm.controls.userName.value">
-            User name is required!
-        </small>
     </div>
-
+    <app-vmessage text="Nome obrigatório" *ngIf="!loginForm.controls.userName.value"></app-vmessage>
     <div class="form-group">
         <input formControlName="password" type="password" class="form-control" placeholder="password">
-        <small class="text-danger d-block mt-2"
-        *ngIf="!loginForm.controls.password.value">
-            Password is required!
-        </small>
+        <app-vmessage text="Senha obrigatória" *ngIf="!loginForm.controls.password.value"></app-vmessage>
     </div>
-
     <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary btn-block">login</button>
 </form>
