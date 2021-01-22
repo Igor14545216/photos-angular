@@ -8,6 +8,7 @@ import { PhotoService } from './photos/photo/photo.service';
 
 import { ErrorsModule } from './errors/errors.module';
 import { PhotosModule } from './photos/photos.module';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [ AppComponent ],
@@ -16,6 +17,7 @@ import { PhotosModule } from './photos/photos.module';
     AppRoutingModule, 
     PhotosModule,
     ErrorsModule,
+    HomeModule,
   ],
   providers: [PhotoService],
   bootstrap: [AppComponent]
