@@ -13,7 +13,7 @@ export class AppComponent {
   constructor(private service: PhotoService) { }
 
   ngOnInit(): void {
-    this.service.listaFhotos('flavio').subscribe(photos => {
+    this.service.listFromUser('flavio').subscribe(photos => {
       this.photos = photos;
     });
   }
