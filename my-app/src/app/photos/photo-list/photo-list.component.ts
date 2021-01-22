@@ -15,8 +15,6 @@ export class PhotoListComponent implements OnInit {
     private service: PhotoService,
     private activatedRoute: ActivatedRoute) { }
 
-  //activatedRoute indica que é a rota ativada naquele momento
-
   ngOnInit(): void {
     const userName = this.activatedRoute.snapshot.params.userName; 
 
