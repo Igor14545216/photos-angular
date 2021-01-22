@@ -1,10 +1,18 @@
-<form action="" [formGroup]="loginForm">
+<form action="" [formGroup]="loginForm" (ngSubmit)="login()">
     <div class="form-group">
-        <input formControlName="userName" class="form-control" placeholder="user name" autofocus>
+        <input 
+            formControlName="userName" 
+            class="form-control" 
+            placeholder="user name" 
+            autofocus>
     </div>
     <app-vmessage text="Nome obrigatório" *ngIf="!loginForm.controls.userName.value"></app-vmessage>
     <div class="form-group">
-        <input formControlName="password" type="password" class="form-control" placeholder="password">
+        <input 
+            formControlName="password" 
+            type="password" 
+            class="form-control" 
+            placeholder="password">
         <app-vmessage text="Senha obrigatória" *ngIf="!loginForm.controls.password.value"></app-vmessage>
     </div>
     <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary btn-block">login</button>
