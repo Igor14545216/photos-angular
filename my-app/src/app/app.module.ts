@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 
 import { PhotoService } from './photos/photo/photo.service';
 
+import { ErrorsModule } from './errors/errors.module';
 import { PhotosModule } from './photos/photos.module';
 
 @NgModule({
@@ -14,6 +15,7 @@ import { PhotosModule } from './photos/photos.module';
     BrowserModule,
     AppRoutingModule, 
     PhotosModule,
+    ErrorsModule,
   ],
   providers: [PhotoService],
   bootstrap: [AppComponent]
