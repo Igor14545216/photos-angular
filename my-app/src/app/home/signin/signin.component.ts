@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/auth.service';
@@ -8,13 +8,13 @@ import { AuthService } from 'src/app/core/auth.service';
 })
 export class SigninComponent implements OnInit {
 
-    loginForm: FormGroup
+    @ViewChild('userNameInput') userNameInput!: ElementRef<HTMLInputElement>;
+    loginForm: FormGroup;
 
     constructor(
         public formBuilder: FormBuilder,
         private service: AuthService,
         private router: Router,
-
     ) {
         this.loginForm = this.formBuilder.group({
             userName: ['', Validators.required],
@@ -25,14 +25,16 @@ export class SigninComponent implements OnInit {
     ngOnInit(): void { }
 
     login() {
+        console.log(this.userNameInput);
+
         const userName = this.loginForm.controls.userName.value;
         const password = this.loginForm.controls.password.value;
 
         this.service.authenticate(userName, password).subscribe(
             () =>
-                this.router.navigate(['user', userName]), //se houve login, logo, o userName existe. Então a rota também deverá existir
+                this.router.navigate(['user', userName]),
             err => {
-                console.log(err);
+                this.userNameInput.nativeElement.focus();
                 this.loginForm.reset();
             });
     }
