@@ -13,16 +13,23 @@ export class UserService {
 
     constructor(private tokenService: TokenService) { }
 
-    setToken(token: string) {
+    setToken(token: any) {
         this.tokenService.setToken(token);
         this.decodeAndNotify();
     }
 
-    getUser() {}
+    getUser() {
+        return this.userSubject.asObservable();
+     }
 
     private decodeAndNotify() {
         const token = this.tokenService.getToken();
         // const user = jwt_decode(token) as User; 
         // this.userSubject.next(user);
+    }
+
+    logout() {
+        this.tokenService.removeToken();
+        this.userSubject.next();
     }
 }
