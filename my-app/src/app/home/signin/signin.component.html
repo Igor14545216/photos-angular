@@ -6,8 +6,8 @@
             class="form-control" 
             placeholder="user name" 
             autofocus>
-    </div>
     <app-vmessage text="Nome obrigatório" *ngIf="!loginForm.controls.userName.value"></app-vmessage>
+    </div>
     <div class="form-group">
         <input 
             formControlName="password" 
@@ -18,3 +18,5 @@
     </div>
     <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary btn-block">login</button>
 </form>
+
+<p>É novo aqui?<a [routerLink]="['signup']"> Cadastre-se</a></p>

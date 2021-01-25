@@ -25,7 +25,10 @@ export class SigninComponent implements OnInit {
         })
     }
 
-    ngOnInit(): void { }
+    ngOnInit(): void {
+        this.userNameInput.nativeElement.focus();
+        this.platformDetectorService.isPlatformBrowser() && this.userNameInput.nativeElement.focus();
+     }
 
     login() {
         console.log(this.userNameInput);
