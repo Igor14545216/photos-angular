@@ -42,7 +42,7 @@
             text="O máximo é 30">
         </app-vmessage>
         <app-vmessage
-            *ngIf="formulario.controls.userName.errors?.pattern"
+            *ngIf="formulario.controls.userName.errors?.lowerCase"
             text="Somente letras minúsculas">
         </app-vmessage>
     </div>
