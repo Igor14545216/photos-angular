@@ -1,0 +1,69 @@
+<form [formGroup]="formulario" class="form mt-4">
+    <div class="form-group">
+        <input formControlName="email" class="form-control" placeholder="email" autofocus>
+        <app-vmessage
+            *ngIf="formulario.controls.email.errors?.required"
+            text="Email é obrigatório!">
+        </app-vmessage>
+        <app-vmessage
+            *ngIf="formulario.controls.email.errors?.email"
+            text="e-mail inválido">
+        </app-vmessage>
+    </div>
+
+    <div class="form-group">
+        <input formControlName="fullName" class="form-control" placeholder="full name">
+        <app-vmessage
+            *ngIf="formulario.controls.fullName.errors?.required"
+            text="Nome completo é obrigatório!">
+        </app-vmessage>
+        <app-vmessage
+            *ngIf="formulario.controls.fullName.errors?.minlength"
+            text="Mínimo é 2">
+        </app-vmessage>
+        <app-vmessage
+            *ngIf="formulario.controls.fullName.errors?.maxlength"
+            text="Máximo é 40">
+        </app-vmessage>
+    </div>
+
+    <div class="form-group">
+        <input formControlName="userName" class="form-control" placeholder="user name">
+        <app-vmessage
+            *ngIf="formulario.controls.userName.errors?.required"
+            text="User name é obrigatório!">
+        </app-vmessage>
+        <app-vmessage
+            *ngIf="formulario.controls.userName.errors?.minlength"
+            text="O mínimo é 2">
+        </app-vmessage>
+        <app-vmessage
+            *ngIf="formulario.controls.userName.errors?.maxlength"
+            text="O máximo é 30">
+        </app-vmessage>
+        <app-vmessage
+            *ngIf="formulario.controls.userName.errors?.pattern"
+            text="Somente letras minúsculas">
+        </app-vmessage>
+    </div>
+
+    <div class="form-group">
+        <input formControlName="password" type="password" class="form-control" placeholder="password">
+        <app-vmessage
+            *ngIf="formulario.controls.password.errors?.required"
+            text="Password é obrigatório!">
+        </app-vmessage>
+        <app-vmessage
+            *ngIf="formulario.controls.password.errors?.minlength"
+            text="Mínimo é 8">
+        </app-vmessage>
+        <app-vmessage
+            *ngIf="formulario.controls.password.errors?.maxlength"
+            text="Máximo é 14">
+        </app-vmessage>
+    </div>
+
+    <button class="btn btn-primary btn-block">Register</button>
+
+    <p>Já possui cadastro? <a [routerLink]="['']">Faça login!</a></p>
+</form>
