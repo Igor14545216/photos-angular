@@ -68,7 +68,7 @@
         </app-vmessage>
     </div>
 
-    <button class="btn btn-primary btn-block" [disabled]="formulario.invalid">Register</button>
+    <button class="btn btn-primary btn-block" [disabled]="formulario.invalid || formulario.pending">Register</button>
 
     <p>Já possui cadastro? <a [routerLink]="['']">Faça login!</a></p>
 </form>
