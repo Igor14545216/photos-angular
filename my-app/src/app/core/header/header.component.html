@@ -6,5 +6,11 @@
             <a class="mr-1">username</a>
             <a (click)="logout()">(Logout)</a>
         </div>
+
+        <ng-template #login>
+            <span class="navbar-text"></span>
+            <a [routerLink]="['']">Please, login</a>
+        </ng-template>
+
     </nav>
 </header>
