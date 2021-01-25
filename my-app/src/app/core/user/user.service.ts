@@ -10,6 +10,7 @@ import { User } from "./user";
 export class UserService {
 
     private userSubject = new Subject<User>();
+    userName: string = 'flavio';
 
     constructor(private tokenService: TokenService) { }
 
@@ -20,16 +21,26 @@ export class UserService {
 
     getUser() {
         return this.userSubject.asObservable();
-     }
+    }
 
     private decodeAndNotify() {
         const token = this.tokenService.getToken();
         // const user = jwt_decode(token) as User; 
         // this.userSubject.next(user);
+        const user = (token) as unknown as User; 
+        // this.userName = user.name; funcionaria correto se o jwt_decode estivesse pegando o usuario logado no payload do token
     }
 
     logout() {
         this.tokenService.removeToken();
         this.userSubject.next();
+    }
+
+    isLogged() {
+        return this.tokenService.hasToken();
+    }
+
+    getUserNamer() {
+        return this.userName;
     }
 }
