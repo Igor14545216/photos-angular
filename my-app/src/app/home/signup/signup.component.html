@@ -30,6 +30,11 @@
     <div class="form-group">
         <input formControlName="userName" class="form-control" placeholder="user name">
         <app-vmessage
+            text="Usuário já existe"
+            *ngIf="formulario.controls.userName.errors?.userNameTaken">
+        </app-vmessage>
+        <small *ngIf="formulario.controls.userName.valid" class="text-success">Usuário disponível</small>
+        <app-vmessage
             *ngIf="formulario.controls.userName.errors?.required"
             text="User name é obrigatório!">
         </app-vmessage>
@@ -63,7 +68,7 @@
         </app-vmessage>
     </div>
 
-    <button class="btn btn-primary btn-block">Register</button>
+    <button class="btn btn-primary btn-block" [disabled]="formulario.invalid">Register</button>
 
     <p>Já possui cadastro? <a [routerLink]="['']">Faça login!</a></p>
 </form>
